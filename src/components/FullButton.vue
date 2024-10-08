@@ -6,9 +6,13 @@ const { enabled = true } = defineProps<{ enabled?: boolean }>();
 <template>
   <button
     @click="emit('click')"
-    class="pointer-events-auto w-full my-2 rounded-md bg-indigo-600 px-3 py-3 font-semibold text-slate-200 hover:bg-indigo-500"
+    class="pointer-events-auto w-full my-2 rounded-md px-3 py-3 font-semibold text-slate-200"
     :disabled="!enabled"
-    :class="{ 'bg-indigo-300 hover:bg-indigo-300': !enabled }"
+    :class="
+      enabled
+        ? 'bg-indigo-600 hover:bg-indigo-500'
+        : 'bg-indigo-300 hover:bg-indigo-300'
+    "
   >
     <slot>Button</slot>
   </button>
