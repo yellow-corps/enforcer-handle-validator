@@ -81,13 +81,15 @@ const totalInvalidHandles = computed(() => {
           >
         </template>
         <template v-else>
-          <CardContainer>
+          <CardContainer
+            :bg-class="hasValidationResults ? 'bg-orange-200' : 'bg-green-300'"
+          >
             <span class="text-xl font-medium text-gray-900">
-              <template v-if="!hasValidationResults">
-                <CakeIcon class="size-6 inline" /> All handles are valid!
+              <template v-if="hasValidationResults">
+                {{ totalInvalidHandles }} handles have validation issues.
               </template>
               <template v-else>
-                {{ totalInvalidHandles }} handles have validation issues.
+                <CakeIcon class="size-6 inline" /> All handles are valid!
               </template>
             </span>
           </CardContainer>

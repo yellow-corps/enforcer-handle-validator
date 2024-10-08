@@ -3,7 +3,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import {
   ChevronRightIcon,
   ArrowDownTrayIcon,
-  ExclamationTriangleIcon,
+  ExclamationTriangleIcon
 } from "@heroicons/vue/20/solid";
 import BaseRule from "../rules/baseRule";
 import CardContainer from "./CardContainer.vue";
@@ -27,15 +27,15 @@ const resultsFileData = computed(() => {
     ...results.map(({ handle, context }) =>
       rule.hasContext
         ? `"${encodeCsvValue(handle)}","${encodeCsvValue(context)}"`
-        : `"${encodeCsvValue(handle)}"`,
-    ),
+        : `"${encodeCsvValue(handle)}"`
+    )
   ].join("\n");
   return `data:text/plain;charset=utf-8,${encodeURIComponent(fileData)}`;
 });
 </script>
 
 <template>
-  <CardContainer v-if="results.length">
+  <CardContainer v-if="results.length" bg-class="bg-red-100">
     <Disclosure v-slot="{ open }">
       <DisclosureButton class="flex w-full text-left">
         <div class="w-full">

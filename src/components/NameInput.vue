@@ -7,7 +7,7 @@ const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();
 
 <template>
   <label for="handles">
-    <CardContainer>
+    <CardContainer bg-class="bg-indigo-200">
       <div class="col-span-full">
         <div class="block text-xl font-medium leading-6 text-gray-900">
           Enforcer Handles
@@ -18,7 +18,7 @@ const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();
             @input="
               emit(
                 'update:modelValue',
-                (<HTMLTextAreaElement>$event.target).value,
+                (<HTMLTextAreaElement>$event.target).value
               )
             "
             id="handles"
