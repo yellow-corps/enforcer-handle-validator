@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { CakeIcon } from "@heroicons/vue/20/solid";
 
 import CardContainer from "./components/CardContainer.vue";
 import FullButton from "./components/FullButton.vue";
@@ -25,7 +26,7 @@ const RULES: BaseRule[] = [
   ReplaceSpacesWithUnderscoresRule,
   ProfaneRule,
   TooShortRule,
-  TooLongRule,
+  TooLongRule
 ];
 
 const handles = ref("");
@@ -41,7 +42,7 @@ const doValidate = () => {
 
   validationResults.value = RULES.map((rule) => ({
     rule,
-    results: rule.checkHandles(handleList),
+    results: rule.checkHandles(handleList)
   }));
 };
 
@@ -73,7 +74,7 @@ const doReset = () => {
           >
             <CardContainer>
               <span class="text-xl font-medium text-gray-900">
-                All handles are valid!</span
+                <CakeIcon class="size-6 inline" /> All handles are valid!</span
               >
             </CardContainer>
           </template>

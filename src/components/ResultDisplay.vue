@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { ChevronRightIcon, ArrowDownTrayIcon } from "@heroicons/vue/20/solid";
+import {
+  ChevronRightIcon,
+  ArrowDownTrayIcon,
+  ExclamationTriangleIcon
+} from "@heroicons/vue/20/solid";
 import BaseRule from "../rules/baseRule";
 import CardContainer from "./CardContainer.vue";
 import { computed } from "vue";
@@ -37,7 +41,7 @@ const resultsFileData = computed(() => {
         <div class="w-full">
           <div class="flex">
             <div class="flex-1 text-xl font-medium text-gray-900">
-              {{ rule.title }}
+              <ExclamationTriangleIcon class="size-6 inline" /> {{ rule.title }}
             </div>
             <div class="text-xl font-medium text-gray-500">
               ({{ results.length }})
