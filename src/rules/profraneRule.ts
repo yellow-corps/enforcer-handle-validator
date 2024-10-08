@@ -7,13 +7,15 @@ const profanity = new Profanity({ languages: ["en"], wholeWord: false });
 export default <BaseRule>{
   title: "Handle may contain profanity",
   description: "Some of a handle may contain swear words or slurs.",
+  filename: "profane",
+  hasContext: false,
 
   checkHandles: (handles) =>
     handles
       .map((handle) => ({
         original: handle,
-        sanitised: sanitiseHandle(handle),
+        sanitised: sanitiseHandle(handle)
       }))
       .filter(({ sanitised }) => profanity.exists(sanitised))
-      .map(({ original: handle }) => ({ handle })),
+      .map(({ original: handle }) => ({ handle }))
 };
