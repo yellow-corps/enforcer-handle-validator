@@ -1,3 +1,5 @@
-# enforcer-handle-validator
+# Enforcer Handle Validator
 
-Validating Enforcer Handles
+A simple tool to validate Enforcer Handles with some simple rules.
+
+https://yellow-corps.github.io/enforcer-handle-validator/
