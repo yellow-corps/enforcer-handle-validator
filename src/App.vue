@@ -64,7 +64,7 @@ const totalInvalidHandles = computed(() => {
 </script>
 
 <template>
-  <div class="min-h-full">
+  <div class="h-full flex flex-col">
     <header class="bg-white shadow">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">
@@ -72,7 +72,7 @@ const totalInvalidHandles = computed(() => {
         </h1>
       </div>
     </header>
-    <main>
+    <main class="flex-1">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <template v-if="!validating">
           <NameInput v-model="handles"></NameInput>
@@ -102,5 +102,23 @@ const totalInvalidHandles = computed(() => {
         </template>
       </div>
     </main>
+    <footer class="bg-white shadow">
+      <div
+        class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-center gap-8"
+      >
+        <a
+          href="https://github.com/yellow-corps/enforcer-handle-validator"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+        <a
+          href="https://github.com/yellow-corps/enforcer-handle-validator/blob/main/PRIVACY.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Privacy Policy</a
+        >
+      </div>
+    </footer>
   </div>
 </template>
