@@ -7,7 +7,6 @@ export default <BaseRule>{
   title: "Handle contains spaces",
   description:
     "A handle contains spaces, which may be invalid in some situations. Consider replacing with an underscore.",
-  level: "warning",
 
   checkHandles: (handles) =>
     handles

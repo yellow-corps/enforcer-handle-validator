@@ -9,7 +9,6 @@ const HIGH_THRESHOLD = 0.9;
 export default <BaseRule>{
   title: "Handle is similar to another handle",
   description: "A handle is similar to another handle and may cause confusion.",
-  level: "error",
 
   checkHandles: (handles) => {
     const handleMap = handles.map((handle) => ({

@@ -7,7 +7,6 @@ const profanity = new Profanity({ languages: ["en"], wholeWord: false });
 export default <BaseRule>{
   title: "Handle may contain profanity",
   description: "Some of a handle may contain swear words or slurs.",
-  level: "warning",
 
   checkHandles: (handles) =>
     handles

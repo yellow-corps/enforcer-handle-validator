@@ -7,7 +7,6 @@ export default <BaseRule>{
   title: "Handle contains invalid characters",
   description:
     "A handle should only contain letters, numbers, and underscores.",
-  level: "error",
 
   checkHandles: (handles) =>
     handles

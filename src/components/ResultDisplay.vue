@@ -8,8 +8,6 @@ const { rule, results } = defineProps<{
   rule: BaseRule;
   results: ReturnType<BaseRule["checkHandles"]>;
 }>();
-
-const level = { error: "Error", warning: "Warning" }[rule.level];
 </script>
 
 <template>
@@ -19,7 +17,7 @@ const level = { error: "Error", warning: "Warning" }[rule.level];
         <div class="w-full">
           <div class="flex">
             <div class="flex-1 text-xl font-medium text-gray-900">
-              {{ level }}: {{ rule.title }}
+              {{ rule.title }}
             </div>
             <div class="text-xl font-medium text-gray-500">
               ({{ results.length }})
