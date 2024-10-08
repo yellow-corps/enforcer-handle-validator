@@ -16,7 +16,7 @@ export default <BaseRule>{
       .filter(
         ({ handle }) =>
           handle.includes(" ") &&
-          handle.split("").some((character) => !VALID_CHARS.includes(character))
+          handle.split("").some((character) => VALID_CHARS.includes(character))
       )
       .map(({ position, handle }) => ({
         position,
