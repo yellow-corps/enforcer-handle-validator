@@ -7,5 +7,7 @@ export default <BaseRule>{
   hasContext: false,
 
   checkHandles: (handles) =>
-    handles.filter((handle) => handle.length < 3).map((handle) => ({ handle }))
+    handles
+      .map((handle, position) => ({ position, handle }))
+      .filter(({ handle }) => handle.length < 3),
 };

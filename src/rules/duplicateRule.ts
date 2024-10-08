@@ -6,7 +6,7 @@ import { diceCoefficient } from "dice-coefficient";
 enum Threshold {
   LOW = 0.8,
   HIGH = 0.9,
-  EXACT = 1
+  EXACT = 1,
 }
 
 function thresholdToLabel(similarity: number) {
@@ -25,32 +25,34 @@ export default <BaseRule>{
   hasContext: true,
 
   checkHandles: (handles) => {
-    const handleMap = handles.map((handle) => ({
+    const handleMap = handles.map((handle, position) => ({
+      position,
       original: handle,
-      sanitised: sanitiseHandle(handle)
+      sanitised: sanitiseHandle(handle),
     }));
 
     return handleMap
-      .map(({ original, sanitised }, index) => {
+      .map(({ position, original, sanitised }, index) => {
         const duplicates = toSpliced(handleMap, index, 1)
           .map(({ original: otherOriginal, sanitised: otherSanitised }) => ({
             other: otherOriginal,
-            similarity: diceCoefficient(sanitised, otherSanitised)
+            similarity: diceCoefficient(sanitised, otherSanitised),
           }))
           .filter(({ similarity }) => similarity >= Threshold.LOW);
 
         return duplicates.length
           ? {
+              position,
               handle: original,
               context: duplicates
                 .map(
                   ({ other, similarity }) =>
-                    `${thresholdToLabel(similarity)} ${other}`
+                    `${thresholdToLabel(similarity)} ${other}`,
                 )
-                .join(", ")
+                .join(", "),
             }
           : null;
       })
       .filter(Boolean);
-  }
+  },
 };

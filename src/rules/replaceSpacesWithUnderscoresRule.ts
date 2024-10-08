@@ -1,7 +1,7 @@
 import BaseRule from "./baseRule";
 
 const VALID_CHARS =
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_";
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_ ";
 
 export default <BaseRule>{
   title: "Handle contains spaces",
@@ -12,10 +12,14 @@ export default <BaseRule>{
 
   checkHandles: (handles) =>
     handles
-      .filter((handle) =>
-        handle.split("").some((character) => !VALID_CHARS.includes(character))
+      .map((handle, position) => ({ position, handle }))
+      .filter(
+        ({ handle }) =>
+          handle.includes(" ") &&
+          handle.split("").some((character) => !VALID_CHARS.includes(character))
       )
-      .map((handle) => ({
+      .map(({ position, handle }) => ({
+        position,
         handle,
         context: `Replace with: ${handle.replaceAll(" ", "_")}`
       }))

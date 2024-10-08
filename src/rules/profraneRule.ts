@@ -12,10 +12,11 @@ export default <BaseRule>{
 
   checkHandles: (handles) =>
     handles
-      .map((handle) => ({
+      .map((handle, position) => ({
+        position,
         original: handle,
-        sanitised: sanitiseHandle(handle)
+        sanitised: sanitiseHandle(handle),
       }))
       .filter(({ sanitised }) => profanity.exists(sanitised))
-      .map(({ original: handle }) => ({ handle }))
+      .map(({ position, original: handle }) => ({ position, handle })),
 };

@@ -3,5 +3,7 @@ export default interface BaseRule {
   description: string;
   filename: string;
   hasContext: boolean;
-  checkHandles(handles: string[]): { handle: string; context: string }[];
+  checkHandles(
+    handles: string[]
+  ): { position: number; handle: string; context: string }[];
 }

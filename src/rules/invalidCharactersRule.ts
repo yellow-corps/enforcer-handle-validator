@@ -12,20 +12,24 @@ export default <BaseRule>{
 
   checkHandles: (handles) =>
     handles
-      .map((handle) => {
+      .map((handle, position) => {
         const invalidCharacters = [
           ...new Set(
             handle
               .split("")
-              .filter((character) => !VALID_CHARS.includes(character))
-          )
+              .filter((character) => !VALID_CHARS.includes(character)),
+          ),
         ].join("");
 
         if (!invalidCharacters.length) {
           return null;
         }
 
-        return { handle, context: `Invalid characters: ${invalidCharacters}` };
+        return {
+          position,
+          handle,
+          context: `Invalid characters: ${invalidCharacters}`,
+        };
       })
-      .filter(Boolean)
+      .filter(Boolean),
 };

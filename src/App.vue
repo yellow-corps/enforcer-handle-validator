@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { CakeIcon } from "@heroicons/vue/20/solid";
 
 import CardContainer from "./components/CardContainer.vue";
@@ -49,6 +49,18 @@ const doValidate = () => {
 const doReset = () => {
   validating.value = false;
 };
+
+const hasValidationResults = computed(() => {
+  return validationResults.value.some(({ results }) => results.length);
+});
+
+const totalInvalidHandles = computed(() => {
+  return new Set(
+    validationResults.value.flatMap(({ results }) =>
+      results.map(({ position }) => position)
+    )
+  ).size;
+});
 </script>
 
 <template>
@@ -69,15 +81,17 @@ const doReset = () => {
           >
         </template>
         <template v-else>
-          <template
-            v-if="!validationResults.some(({ results }) => results.length)"
-          >
-            <CardContainer>
-              <span class="text-xl font-medium text-gray-900">
-                <CakeIcon class="size-6 inline" /> All handles are valid!</span
-              >
-            </CardContainer>
-          </template>
+          <CardContainer>
+            <span class="text-xl font-medium text-gray-900">
+              <template v-if="!hasValidationResults">
+                <CakeIcon class="size-6 inline" /> All handles are valid!
+              </template>
+              <template v-else>
+                {{ totalInvalidHandles }} handles have validation issues.
+              </template>
+            </span>
+          </CardContainer>
+
           <template
             v-for="{ rule, results } in validationResults"
             :key="rule.title"
