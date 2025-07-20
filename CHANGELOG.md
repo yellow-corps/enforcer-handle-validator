@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-07-20
+
 ### Added
 
 - Add hyphen to allowed characters
@@ -26,5 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Initial version
 
-[Unreleased]: https://github.com/yellow-corps/enforcer-handle-validator/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/yellow-corps/enforcer-handle-validator/releases/tag/v1.0.0
+[Unreleased]: https://github.com/yellow-corps/ibis/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/yellow-corps/ibis/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/yellow-corps/ibis/releases/tag/v1.0.0
