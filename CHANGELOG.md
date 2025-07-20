@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Release script now triggers the deploy-app workflow
+
+### Removed
+
+- Remove automatic dispatch of deploy-app workflow
+
 ## [1.1.0] - 2025-07-20
 
 ### Added
