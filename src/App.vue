@@ -10,7 +10,6 @@ import ResultDisplay from "./components/ResultDisplay.vue";
 import BaseRule from "./rules/baseRule.ts";
 import DuplicateRule from "./rules/duplicateRule.ts";
 import InvalidCharactersRule from "./rules/invalidCharactersRule.ts";
-import ReplaceSpacesWithUnderscoresRule from "./rules/replaceSpacesWithUnderscoresRule.ts";
 import ProfaneRule from "./rules/profraneRule.ts";
 import TooShortRule from "./rules/tooShortRule.ts";
 import TooLongRule from "./rules/tooLongRule.ts";
@@ -23,7 +22,6 @@ interface ValidationResult {
 const RULES: BaseRule[] = [
   DuplicateRule,
   InvalidCharactersRule,
-  ReplaceSpacesWithUnderscoresRule,
   ProfaneRule,
   TooShortRule,
   TooLongRule

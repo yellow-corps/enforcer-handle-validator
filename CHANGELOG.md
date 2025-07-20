@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- No longer validate spaces in handles
 - Upgraded dependencies
 
 ### Fixed
