@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Embed current version into footer in production mode
+
 ### Changed
 
 - Release script now triggers the deploy-app workflow

@@ -17,6 +17,7 @@
     "@2toad/profanity": "^3.0.0",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.1.5",
+    "@types/node": "^24.0.15",
     "array.prototype.tospliced": "^1.1.4",
     "dice-coefficient": "^2.1.1",
     "vue": "^3.5.10"

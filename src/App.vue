@@ -19,6 +19,17 @@ interface ValidationResult {
   results: ReturnType<BaseRule["checkHandles"]>;
 }
 
+declare global {
+  var __APP_VERSION__: string;
+  var __APP_MODE__: "development" | "production";
+}
+
+// eslint-disable-next-line no-undef
+const appVersion = __APP_VERSION__;
+// eslint-disable-next-line no-undef
+const isProd = __APP_MODE__ === "production";
+const changelogUrl = `https://github.com/yellow-corps/enforcer-handle-validator/tree/${appVersion}/CHANGELOG.md`;
+
 const RULES: BaseRule[] = [
   DuplicateRule,
   InvalidCharactersRule,
@@ -117,6 +128,13 @@ const totalInvalidHandles = computed(() => {
           target="_blank"
           rel="noopener noreferrer"
           >Privacy Policy</a
+        >
+        <a
+          :href="changelogUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          v-show="isProd"
+          >{{ appVersion }}</a
         >
       </div>
     </footer>
