@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Release script now triggers the deploy-app workflow
 
+### Fixed
+
+- Fix eslint config picking up dist files
+
 ### Removed
 
 - Remove automatic dispatch of deploy-app workflow
