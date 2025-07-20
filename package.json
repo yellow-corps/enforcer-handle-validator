@@ -8,7 +8,10 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint",
-    "format": "prettier --write \"**/*.{js,ts,html,css,md,json,vue}\" \"!package*.json\""
+    "format": "prettier --write \"**/*.{js,ts,html,css,md,json,vue}\" \"!package*.json\"",
+    "format-changelog": "prettier --write --end-of-line lf CHANGELOG.md",
+    "bump-changelog": "changelog --create --url https://github.com/yellow-corps/ibis --release",
+    "get-latest-changelog": "changelog --latest-release-full"
   },
   "dependencies": {
     "@2toad/profanity": "^3.0.0",
@@ -25,6 +28,7 @@
     "eslint": "^9.11.1",
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.10.0",
+    "keep-a-changelog": "^2.6.2",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.13",
