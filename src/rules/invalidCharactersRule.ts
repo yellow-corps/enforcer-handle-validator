@@ -6,7 +6,7 @@ const VALID_CHARS =
 export default <BaseRule>{
   title: "Handle contains invalid characters",
   description:
-    "A handle should only contain letters, numbers, and underscores.",
+    "A handle should only contain letters, numbers, hyphens, underscores, and spaces.",
   filename: "invalidCharacters",
   hasContext: true,
 

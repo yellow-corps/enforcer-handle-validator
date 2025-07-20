@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- Fix invalid character rule description
 - Fix eslint config picking up dist files
 
 ### Removed
