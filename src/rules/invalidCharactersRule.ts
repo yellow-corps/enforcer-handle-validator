@@ -1,7 +1,7 @@
 import BaseRule from "./baseRule";
 
 const VALID_CHARS =
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_ ";
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_ ";
 
 export default <BaseRule>{
   title: "Handle contains invalid characters",

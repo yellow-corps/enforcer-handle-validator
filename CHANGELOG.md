@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Add hyphen to allowed characters
 - Release script
 - Changelog
 
