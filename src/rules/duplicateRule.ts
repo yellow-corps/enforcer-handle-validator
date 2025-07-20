@@ -4,7 +4,7 @@ import BaseRule from "./baseRule";
 import { diceCoefficient } from "dice-coefficient";
 
 enum Threshold {
-  LOW = 0.8,
+  LOW = 0.75,
   HIGH = 0.9,
   EXACT = 1,
 }

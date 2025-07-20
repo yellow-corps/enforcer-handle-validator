@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Reduce LOW threshold for duplicate rule from 80% to 75% similar
 - Release script now triggers the deploy-app workflow
 - Reformat all files
 
