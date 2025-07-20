@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Release script
 - Changelog
 
+### Changed
+
+- Upgraded dependencies
+
 ### Fixed
 
 - Dependency issues
