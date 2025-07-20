@@ -4,6 +4,6 @@ export default interface BaseRule {
   filename: string;
   hasContext: boolean;
   checkHandles(
-    handles: string[]
+    handles: string[],
   ): { position: number; handle: string; context: string }[];
 }

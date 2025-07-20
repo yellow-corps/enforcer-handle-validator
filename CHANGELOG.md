@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Release script now triggers the deploy-app workflow
+- Reformat all files
 
 ### Fixed
 

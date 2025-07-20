@@ -35,7 +35,7 @@ const RULES: BaseRule[] = [
   InvalidCharactersRule,
   ProfaneRule,
   TooShortRule,
-  TooLongRule
+  TooLongRule,
 ];
 
 const handles = ref("");
@@ -51,7 +51,7 @@ const doValidate = () => {
 
   validationResults.value = RULES.map((rule) => ({
     rule,
-    results: rule.checkHandles(handleList)
+    results: rule.checkHandles(handleList),
   }));
 };
 
@@ -66,8 +66,8 @@ const hasValidationResults = computed(() => {
 const totalInvalidHandles = computed(() => {
   return new Set(
     validationResults.value.flatMap(({ results }) =>
-      results.map(({ position }) => position)
-    )
+      results.map(({ position }) => position),
+    ),
   ).size;
 });
 </script>

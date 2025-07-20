@@ -18,7 +18,7 @@ const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();
             @input="
               emit(
                 'update:modelValue',
-                (<HTMLTextAreaElement>$event.target).value
+                (<HTMLTextAreaElement>$event.target).value,
               )
             "
             id="handles"
