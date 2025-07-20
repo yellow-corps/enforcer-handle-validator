@@ -4,7 +4,8 @@ import { CakeIcon } from "@heroicons/vue/20/solid";
 
 import CardContainer from "./components/CardContainer.vue";
 import FullButton from "./components/FullButton.vue";
-import NameInput from "./components/NameInput.vue";
+import NameListInput from "./components/NameListInput.vue";
+import NameSingleInput from "./components/NameSingleInput.vue";
 import ResultDisplay from "./components/ResultDisplay.vue";
 
 import BaseRule from "./rules/baseRule.ts";
@@ -39,6 +40,7 @@ const RULES: BaseRule[] = [
 ];
 
 const handles = ref("");
+const focusedHandle = ref("");
 const validationResults = ref(<ValidationResult[]>[]);
 const validating = ref(false);
 const doValidate = () => {
@@ -47,12 +49,24 @@ const doValidate = () => {
   const handleList = handles.value
     .split(/[\r\n]+/)
     .map((handle) => handle.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .concat(focusedHandle.value ? [focusedHandle.value] : []);
+  console.log(handleList);
 
-  validationResults.value = RULES.map((rule) => ({
-    rule,
-    results: rule.checkHandles(handleList),
-  }));
+  validationResults.value = RULES.map((rule) => {
+    const results = rule.checkHandles(handleList).filter(({ handle }) => {
+      if (!focusedHandle.value) {
+        return true;
+      }
+
+      return focusedHandle.value === handle;
+    });
+
+    return {
+      rule,
+      results: focusedHandle.value ? results.slice(0, 1) : results,
+    };
+  });
 };
 
 const doReset = () => {
@@ -84,7 +98,8 @@ const totalInvalidHandles = computed(() => {
     <main class="flex-1">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <template v-if="!validating">
-          <NameInput v-model="handles"></NameInput>
+          <NameListInput v-model="handles"></NameListInput>
+          <NameSingleInput v-model="focusedHandle"></NameSingleInput>
           <FullButton @click="doValidate" :enabled="!!handles.trim()"
             >Validate</FullButton
           >
@@ -95,10 +110,19 @@ const totalInvalidHandles = computed(() => {
           >
             <span class="text-xl font-medium text-gray-900">
               <template v-if="hasValidationResults">
-                {{ totalInvalidHandles }} handles have validation issues.
+                <template v-if="focusedHandle">
+                  The handle "{{ focusedHandle }}" has validation issues.
+                </template>
+                <template v-else>
+                  {{ totalInvalidHandles }} handles have validation issues.
+                </template>
               </template>
               <template v-else>
-                <CakeIcon class="size-6 inline" /> All handles are valid!
+                <CakeIcon class="size-6 inline" />
+                <template v-if="focusedHandle">
+                  The handle "{{ focusedHandle }}" is valid!
+                </template>
+                <template v-else> All handles are valid! </template>
               </template>
             </span>
           </CardContainer>

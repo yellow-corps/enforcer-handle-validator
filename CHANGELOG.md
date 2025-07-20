@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Embed current version into footer in production mode
+- Specific handle comparison field, for focused validation
 
 ### Changed
 
